@@ -15,7 +15,6 @@ module.exports = NodeHelper.create({
 
   getStocks: function (url) {
       var self = this;
-      console.log('requesting:' + url);
       request({ url: url, method: 'GET' }, function (error, response, body) {
           if (!error && response.statusCode == 200) {
               var result = JSON.parse(body);
@@ -33,7 +32,6 @@ module.exports = NodeHelper.create({
     var stockResults = [];
 
     urls.forEach(url => {
-      console.log('url:' + url);
       request({ url: url, method: 'GET' }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             stockResults.push(JSON.parse(body));
@@ -44,6 +42,7 @@ module.exports = NodeHelper.create({
         }
         else {
             var err = error;
+            console.log('stocks fetch of url ' + url + ' failed (' + response.statusCode + ')');
         }
     });
     });
