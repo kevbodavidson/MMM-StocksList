@@ -94,7 +94,7 @@ Module.register("stocks", {
         var stocksArray = this.config.stocks.split(',');
 
         stocksArray.forEach(function(stock) {
-            var requestUrl = url + stock + "/quote";
+            var requestUrl = url + encodeURIComponent(stock) + "/quote";
             requestUrls.push(requestUrl);
         });
 
