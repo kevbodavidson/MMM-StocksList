@@ -23,7 +23,7 @@ Module.register("stocks", {
 	// Override dom generator.
 	getDom: function() {
 
-        var wrapper = document.createElement("marquee");
+        var wrapper = document.createElement("div");
         wrapper.className = 'medium bright';
 
         var count = 0;
@@ -58,7 +58,7 @@ Module.register("stocks", {
                 var divider = document.createElement("span"); 
                 
                 if (count < _this.result.length - 1)
-                    divider.innerHTML = '  •  ';
+                    divider.innerHTML = '<br />';
 
                 wrapper.appendChild(priceElement);
                 wrapper.appendChild(changeElement);
